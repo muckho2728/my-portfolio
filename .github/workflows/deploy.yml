@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages (from main)
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -15,13 +15,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Nếu bạn build gì đó, thêm step build ở đây
-      # Ví dụ: npm install && npm run build
-      # Với HTML/CSS/JS thuần thì bỏ qua
+      # Nếu chỉ có HTML/CSS/JS thuần thì bỏ qua bước build
+      # Nếu có npm/yarn thì thêm:
+      # - run: npm install
+      # - run: npm run build
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
-          publish_branch: main
+          publish_branch: gh-pages
