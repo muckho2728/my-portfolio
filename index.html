@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Personal portfolio - Phong" />
+  <title>Haiha — Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous"/>
+
+  <link rel="icon" href="assets/img/favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header__inner">
+      <div class="brand">
+        <a href="#home">Haiha</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#home">Home</a></li>
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#projects">Projects</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME / HERO -->
+    <section id="home" class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <h1 class="hero__title">Xin chào, mình là Haiha</h1>
+          <p class="hero__subtitle">Web Developer • Tester • Future BrSE</p>
+          <a class="btn" href="#projects">Xem dự án của mình</a>
+        </div>
+        <div class="hero__avatar">
+          <img src="assets/img/avatar.jpg" alt="Avatar">
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h2 class="section__title">About me</h2>
+        <p>Mình là lập trình viên thích xây dựng web, viết test tự động, và học .NET + React.</p>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects">
+      <div class="container">
+        <h2 class="section__title">Projects</h2>
+        <div class="projects__grid">
+          <article class="project-card">
+            <img src="assets/img/project-1.png" alt="Project 1">
+            <h3>Movie Theater App</h3>
+            <p>React + .NET — Booking system</p>
+            <a class="project-card__link" href="#">View</a>
+          </article>
+          <!-- duplicate cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 class="section__title">Contact</h2>
+        <form id="contactForm" class="contact__form" action="#" novalidate>
+          <input name="name" type="text" placeholder="Your name" required>
+          <input name="email" type="email" placeholder="Your email" required>
+          <textarea name="message" rows="6" placeholder="Message..." required></textarea>
+          <button type="submit" class="btn">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Haiha — Built with ❤️</p>
+    </div>
+  </footer>
+
+  <!-- ScrollReveal CDN (optional for scroll animations) -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
