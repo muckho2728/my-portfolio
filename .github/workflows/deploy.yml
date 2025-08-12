@@ -1,9 +1,12 @@
-name: Deploy Portfolio to GitHub Pages
+name: Deploy to GitHub Pages (from main)
 
 on:
   push:
     branches:
       - main
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
@@ -12,8 +15,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Nếu bạn build gì đó, thêm step build ở đây
+      # Ví dụ: npm install && npm run build
+      # Với HTML/CSS/JS thuần thì bỏ qua
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .  # thư mục chứa index.html
+          publish_dir: .
+          publish_branch: main
