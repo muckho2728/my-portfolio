@@ -15,8 +15,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Nếu chỉ có HTML/CSS/JS thuần thì bỏ qua bước build
-      # Nếu có npm/yarn thì thêm:
+      # Nếu bạn có build (React, Vue, Tailwind, SCSS...) thì thêm ở đây
+      # Ví dụ:
       # - run: npm install
       # - run: npm run build
 
