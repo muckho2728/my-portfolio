@@ -3,19 +3,46 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Personal portfolio - Phong" />
+  <meta name="description" content="Personal portfolio - Haiha" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#4facfe" />
+
+  <meta property="og:title" content="Haiha — Portfolio" />
+  <meta property="og:description" content="Personal portfolio - Haiha" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/avatar.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
   <title>Haiha — Portfolio</title>
 
   <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome (icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous"/>
+  <!-- Font Awesome (icons) - integrity fixed -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZgAl4zE+6O4OprvTvXpoT7zFfCDHhH8rZt+nuJ+AzltO5Wb5g2MRqX1gVtD8RnbtHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="icon" href="assets/img/favicon.ico" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+  <!-- Theme toggle (bật/dừng) -->
+  
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scrollProgressBar"></div>
+  </div>
+
+
   <header class="site-header">
     <div class="container header__inner">
       <div class="brand">
@@ -31,23 +58,33 @@
           <li><a class="nav__link" href="#home">Home</a></li>
           <li><a class="nav__link" href="#about">About</a></li>
           <li><a class="nav__link" href="#projects">Projects</a></li>
-          <li><a class="nav__link" href="#contact">Contact</a></li>
+          <li><a class="nav__link" href="#hand">Hand Tracking</a></li>
+          
         </ul>
+        
       </nav>
+      <button id="theme-toggle" aria-label="Chuyển chế độ tối/sáng">🌙</button>
     </div>
+    
   </header>
 
-  <main>
-    <!-- HOME / HERO -->
+  <main id="main">
+    <!-- HOME / HERO (giữ nguyên cấu trúc của bạn) -->
     <section id="home" class="hero">
       <div class="container hero__inner">
-        <div class="hero__text">
+        <div class="hero__text" data-aos="fade-up" data-aos-delay="50">
           <h1 class="hero__title">Xin chào, mình là Haiha</h1>
-          <p class="hero__subtitle">Web Developer • Tester • Future BrSE</p>
-          <a class="btn" href="#projects">Xem dự án của mình</a>
+          <!-- giữ hero__subtitle như cũ, nhưng thêm span #typed để JS gõ chữ -->
+          <p class="hero__subtitle"><span id="typed">Web Developer • Tester • Future BrSE</span></p>
+          <div class="hero__cta">
+            <a class="btn" href="#projects">Xem dự án của mình</a>
+            <a class="btn btn--secondary" href="assets/cv/Haiha-CV.pdf">My CV</a>
+            <a class="btn btn--ghost" href="https://github.com/muckho2728">Hire me</a>
+            <a class="btn btn--ghost" href="https://www.linkedin.com/in/halethihai83/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
         </div>
-        <div class="hero__avatar">
-          <img src="assets/img/avatar.jpg" alt="Avatar">
+        <div class="hero__avatar" data-aos="zoom-in" data-aos-delay="150">
+          <img src="assets/img/avatar.jpg" alt="Avatar" loading="lazy" decoding="async">
         </div>
       </div>
     </section>
@@ -55,37 +92,273 @@
     <!-- ABOUT -->
     <section id="about" class="section about">
       <div class="container">
-        <h2 class="section__title">About me</h2>
-        <p>Mình là lập trình viên thích xây dựng web, viết test tự động, và học .NET + React.</p>
+        <h2 class="section__title" data-aos="fade-up">About me</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Mình là lập trình viên thích xây dựng web, viết test tự động, và học .NET + React.</p>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section projects">
-      <div class="container">
-        <h2 class="section__title">Projects</h2>
-        <div class="projects__grid">
-          <article class="project-card">
-            <img src="assets/img/project-1.png" alt="Project 1">
-            <h3>Movie Theater App</h3>
-            <p>React + .NET — Booking system</p>
-            <a class="project-card__link" href="#">View</a>
-          </article>
-          <!-- duplicate cards -->
+    <!-- SKILLS -->
+      <section id="skills" class="py-5 bg-light box-right">
+        <div class="container">
+          <h2 class="text-center mb-5" data-aos="fade-up">My Skills</h2>
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <div class="skills-grid">
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="0">
+                  <img src="assets/img/HTML5_logo_and_wordmark.svg.png" alt="HTML5" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>HTML5</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="50">
+                  <img src="assets/img/CSS3_logo_and_wordmark.svg.png" alt="CSS3" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>CSS3</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="100">
+                  <img src="assets/img/JavaScript-logo.png" alt="JavaScript" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>JavaScript</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="150">
+                  <img src="assets/img/images.png" alt="React" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>React</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="200">
+                  <img src="assets/img/Node.js_logo.svg.png" alt="Node.js" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>Node.js</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="250">
+                  <img src="assets/img/18133.png" alt="Git" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>Git</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="300">
+                  <img src="assets/img/1_82q9fbZA3OHhyoQ48qOypQ.png" alt="RESTful API" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>RESTful API</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="350">
+                  <img src="assets/img/Vitejs-logo.svg.png" alt="Vite Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>Vite</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="400">
+                  <img src="assets/img/Typescript_logo_2020.svg.png" alt="TypeScript Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>TypeScript</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="450">
+                  <img src="assets/img/java-coffee-cup-logo.png" alt="Java Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>Java</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="500">
+                  <img src="assets/img/mongodb-logo-png_seeklogo-481256.png" alt="MongoDB Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>MongoDB</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="assets/img/Microsoft_SQL_Server_2025_icon.svg.png" alt="SQL Server Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>SQL Server</h3>
+                </div>
+
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="assets/img/portgreSQL.webp" alt="PortgreSQL Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>PortgreSQL</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="assets/img/docker.webp" alt="Docker Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>Docker</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="assets/img/azure.png" alt="SQL Server Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>Azure</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="assets/img/AndroiStudio.png" alt="AndroiStudio Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>AndroiStudio</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="assets/img/flutter.png" alt="Fluter Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>Fluter</h3>
+                </div>
+
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="assets/img/testrail.png" alt="TestRail Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>TestRail</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="assets/img/Katalon.webp" alt="Katalon Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>Katalon</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="assets/img/selenium.png" alt="Selenium Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>Selenium</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="assets/img/java.png" alt="Java Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>Java</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="assets/img/git.webp" alt="Git Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>Git</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="assets/img/c-sharp.png" alt="C# Logo" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>C-Sharp</h3>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="assets/img/dotnet.png" alt="Dot Net" class="skill-logo mb-3" loading="lazy" decoding="async">
+                  <h3>Dot Net</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects">
+  <h2 data-aos="fade-up">My Projects</h2>
+  <div class="featured" data-aos="fade-up" data-aos-delay="40">
+    <div class="featured__head">
+      <h3 class="featured__title">Featured Projects</h3>
+      <p class="featured__subtitle">Một vài dự án nổi bật (impact + vai trò + tech).</p>
+    </div>
+    <div class="featured__grid" id="featuredProjects"></div>
+  </div>
+  <div class="projects-controls" data-aos="fade-up" data-aos-delay="80">
+    <div class="projects-filters" role="group" aria-label="Project filters">
+      <button class="filter-btn is-active" type="button" data-filter="all">All</button>
+      <button class="filter-btn" type="button" data-filter="react">React</button>
+      <button class="filter-btn" type="button" data-filter="dotnet">.NET</button>
+      <button class="filter-btn" type="button" data-filter="testing">Testing</button>
+      <button class="filter-btn" type="button" data-filter="unity">Unity</button>
+    </div>
+    <div class="projects-search">
+      <input id="projectSearch" type="search" placeholder="Search projects..." autocomplete="off" />
+      <span class="projects-count" id="projectsCount" aria-live="polite"></span>
+    </div>
+  </div>
+  <div class="project-grid">
+
+    <!-- Movie Theater -->
+    <div class="project-card" data-featured="true" data-metrics="Booking flow end-to-end;Role-based access;REST API" data-tags="react dotnet api" data-title="Movie Theater Management" data-description="Website đặt vé và quản lý suất chiếu phim. Frontend React, Backend .NET Core, RESTful API." data-role="Full-stack" data-stack="React, .NET Core, RESTful API" data-highlights="Auth & roles;Booking flow;RESTful CRUD;Responsive UI" data-github="https://github.com/muckho2728/MovieTheater" data-demo="https://demo-link.com" data-aos="fade-up" data-aos-delay="0">
+      <img src="assets/img/project-movie.png" alt="Movie Theater App" class="project-img" loading="lazy" decoding="async" />
+      <div class="project-overlay">
+        <h3>Movie Theater Management</h3>
+        <p>Website đặt vé và quản lý suất chiếu phim. Frontend React, Backend .NET Core, RESTful API.</p>
+        <div class="project-links">
+          <a href="https://github.com/muckho2728/MovieTheater" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://demo-link.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+          <button class="project-details" type="button">Details</button>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
+    <!-- Automation Testing Framework -->
+    <div class="project-card" data-featured="true" data-metrics="POM architecture;Reusable utilities;CI-ready" data-tags="testing selenium" data-title="Automation Testing Framework" data-description="Framework Selenium WebDriver + TestNG, Page Object Model. CI/CD tích hợp GitLab." data-role="QA Automation" data-stack="Selenium WebDriver, TestNG, Java" data-highlights="Page Object Model;Reusable test utilities;CI-ready structure" data-github="https://github.com/muckho2728/AutomationTesting" data-aos="fade-up" data-aos-delay="80">
+      <img src="assets/img/project-automation.png" alt="Automation Framework" class="project-img" loading="lazy" decoding="async" />
+      <div class="project-overlay">
+        <h3>Automation Testing Framework</h3>
+        <p>Framework Selenium WebDriver + TestNG, Page Object Model. CI/CD tích hợp GitLab.</p>
+        <div class="project-links">
+          <a href="https://github.com/muckho2728/AutomationTesting" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <button class="project-details" type="button">Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- API Integration Testing -->
+    <div class="project-card" data-tags="testing api" data-title="API Integration Testing" data-description="Test API cho hệ thống Movie Theater. Bao phủ Actor, Movie, User, Order, Payment, Ticket." data-role="QA / API Testing" data-stack="REST API, Integration Testing" data-highlights="Coverage nhiều module;Test data strategy;Regression-ready" data-github="https://github.com/muckho2728/API-Integration-Tests" data-aos="fade-up" data-aos-delay="160">
+      <img src="assets/img/project-api.png" alt="API Integration Testing" class="project-img" loading="lazy" decoding="async" />
+      <div class="project-overlay">
+        <h3>API Integration Testing</h3>
+        <p>Test API cho hệ thống Movie Theater. Bao phủ Actor, Movie, User, Order, Payment, Ticket.</p>
+        <div class="project-links">
+          <a href="https://github.com/muckho2728/API-Integration-Tests" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <button class="project-details" type="button">Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Unity Mini Game -->
+    <div class="project-card" data-tags="unity" data-title="Unity Mini Game" data-description="Game 2D nhỏ phát triển bằng Unity. Gameplay đơn giản nhưng có xử lý va chạm & UI cơ bản." data-role="Game Developer" data-stack="Unity, C#" data-highlights="2D mechanics;Collision handling;UI basics" data-github="https://github.com/muckho2728/Unity-Game" data-aos="fade-up" data-aos-delay="240">
+      <img src="assets/img/project-unity.png" alt="Unity Game" class="project-img" loading="lazy" decoding="async" />
+      <div class="project-overlay">
+        <h3>Unity Mini Game</h3>
+        <p>Game 2D nhỏ phát triển bằng Unity. Gameplay đơn giản nhưng có xử lý va chạm & UI cơ bản.</p>
+        <div class="project-links">
+          <a href="https://github.com/muckho2728/Unity-Game" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <button class="project-details" type="button">Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certificates Showcase -->
+    <div class="project-card" data-tags="htmlcssjs" data-title="Certificates Showcase" data-description="Web mini trưng bày chứng chỉ học tập. Dùng HTML, CSS, JS + GitHub Pages deploy." data-role="Front-end" data-stack="HTML, CSS, JavaScript" data-highlights="Responsive layout;Clean UI;Deployed on GitHub Pages" data-github="https://github.com/muckho2728/Certificates" data-demo="https://muckho2728.github.io/Certificates" data-aos="fade-up" data-aos-delay="320">
+      <img src="assets/img/project-cert.png" alt="Certificates" class="project-img" loading="lazy" decoding="async" />
+      <div class="project-overlay">
+        <h3>Certificates Showcase</h3>
+        <p>Web mini trưng bày chứng chỉ học tập. Dùng HTML, CSS, JS + GitHub Pages deploy.</p>
+        <div class="project-links">
+          <a href="https://github.com/muckho2728/Certificates" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://muckho2728.github.io/Certificates" target="_blank" rel="noopener noreferrer">Live Demo</a>
+          <button class="project-details" type="button">Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Website -->
+    <div class="project-card" data-tags="htmlcssjs" data-title="Personal Portfolio" data-description="Portfolio cá nhân (HTML, CSS, JS). Responsive, dark mode, deploy trên GitHub Pages." data-role="Front-end" data-stack="HTML, CSS, JavaScript" data-highlights="Dark mode;AOS animations;Project filtering" data-github="https://github.com/muckho2728/my-portfolio" data-demo="https://muckho2728.github.io/my-portfolio" data-aos="fade-up" data-aos-delay="400">
+      <img src="assets/img/project-portfolio.png" alt="Portfolio" class="project-img" loading="lazy" decoding="async" />
+      <div class="project-overlay">
+        <h3>Personal Portfolio</h3>
+        <p>Portfolio cá nhân (HTML, CSS, JS). Responsive, dark mode, deploy trên GitHub Pages.</p>
+        <div class="project-links">
+          <a href="https://github.com/muckho2728/my-portfolio" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://muckho2728.github.io/my-portfolio" target="_blank" rel="noopener noreferrer">Live Demo</a>
+          <button class="project-details" type="button">Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- React Admin Dashboard -->
+    <div class="project-card" data-tags="react dashboard" data-title="React Admin Dashboard" data-description="Dashboard quản trị viết bằng React + Ant Design. Quản lý user, sản phẩm, thống kê chart." data-role="Front-end" data-stack="React, Ant Design" data-highlights="Admin UI;Charts & statistics;Reusable components" data-github="https://github.com/muckho2728/React-Admin" data-aos="fade-up" data-aos-delay="480">
+      <img src="assets/img/project-dashboard.png" alt="React Admin Dashboard" class="project-img" loading="lazy" decoding="async" />
+      <div class="project-overlay">
+        <h3>React Admin Dashboard</h3>
+        <p>Dashboard quản trị viết bằng React + Ant Design. Quản lý user, sản phẩm, thống kê chart.</p>
+        <div class="project-links">
+          <a href="https://github.com/muckho2728/React-Admin" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <button class="project-details" type="button">Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- .NET API Backend -->
+    <div class="project-card" data-featured="true" data-metrics="JWT auth;Layered architecture;SQL Server" data-tags="dotnet api" data-title=".NET API Backend" data-description="Backend API xây dựng bằng .NET 6.0 + SQL Server. Authentication, CRUD, JWT bảo mật." data-role="Back-end" data-stack=".NET 6, SQL Server, JWT" data-highlights="JWT authentication;CRUD endpoints;Layered architecture" data-github="https://github.com/muckho2728/DotNet-API" data-aos="fade-up" data-aos-delay="560">
+      <img src="assets/img/project-dotnet.png" alt=".NET API Backend" class="project-img" loading="lazy" decoding="async" />
+      <div class="project-overlay">
+        <h3>.NET API Backend</h3>
+        <p>Backend API xây dựng bằng .NET 6.0 + SQL Server. Authentication, CRUD, JWT bảo mật.</p>
+        <div class="project-links">
+          <a href="https://github.com/muckho2728/DotNet-API" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <button class="project-details" type="button">Details</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <section id="hand" class="section hand">
       <div class="container">
-        <h2 class="section__title">Contact</h2>
-        <form id="contactForm" class="contact__form" action="#" novalidate>
-          <input name="name" type="text" placeholder="Your name" required>
-          <input name="email" type="email" placeholder="Your email" required>
-          <textarea name="message" rows="6" placeholder="Message..." required></textarea>
-          <button type="submit" class="btn">Send</button>
-        </form>
+        <h2 class="section__title" data-aos="fade-up">Hand Tracking Demo</h2>
+        <p class="hand__subtitle" data-aos="fade-up" data-aos-delay="60">Bật webcam để bắt keypoints bàn tay và suy ra gesture. (Trình duyệt sẽ hỏi quyền camera.)</p>
+
+        <div class="hand__controls" data-aos="fade-up" data-aos-delay="90">
+          <button class="btn" id="handStart" type="button">Start</button>
+          <button class="btn btn--secondary" id="handStop" type="button" disabled>Stop</button>
+          <span class="hand__status" id="handStatus" role="status" aria-live="polite">Idle</span>
+          <span class="hand__gesture" id="handGesture" aria-live="polite"></span>
+        </div>
+
+        <div class="hand__stage" data-aos="fade-up" data-aos-delay="120">
+          <video id="handVideo" class="hand__video" playsinline muted></video>
+          <canvas id="handCanvas" class="hand__canvas"></canvas>
+        </div>
       </div>
     </section>
   </main>
@@ -96,8 +369,40 @@
     </div>
   </footer>
 
-  <!-- ScrollReveal CDN (optional for scroll animations) -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Lên đầu trang">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+    <div class="modal-content" role="document">
+      <button class="close" id="projectModalClose" type="button" aria-label="Close">×</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+      <div class="modal-meta" id="modalMeta">
+        <div class="modal-meta__item"><span class="modal-meta__label">Role</span><span class="modal-meta__value" id="modalRole"></span></div>
+        <div class="modal-meta__item"><span class="modal-meta__label">Stack</span><span class="modal-meta__value" id="modalStack"></span></div>
+      </div>
+      <h4 class="modal-section-title" id="modalHighlightsTitle">Highlights</h4>
+      <ul class="modal-highlights" id="modalHighlights"></ul>
+      <div class="modal-actions" id="modalActions"></div>
+    </div>
+  </div>
+
+  <div class="heart-screen" id="heartScreen" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <div class="hand__heart" aria-hidden="true"></div>
+    <p class="heart-screen__text">Thank you for visiting!</p>
+  </div>
+
+  <!-- CDNs: Typed.js + AOS + ScrollReveal(optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+
+  <!-- your script (paste the script.js below) -->
   <script src="js/script.js"></script>
 </body>
 </html>
