@@ -24,6 +24,7 @@ body{
   width: 90%;
   max-width: var(--container);
   margin: 0 auto;
+  
 }
 
 /* Header */
